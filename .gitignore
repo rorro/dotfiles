@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# The following files will not be ignored
+!.vim/
+!.bashrc
+!.inputrc
+!.gitignore
+!.spacemacs

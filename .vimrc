@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Autocompletion
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 
 " Auto closing of parenthesis, brackets etc.
 Plug 'Raimondi/delimitMate'
@@ -27,6 +27,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 " elm
 Plug 'elmcast/elm-vim'
+
+" Typst
+Plug 'kaarmu/typst.vim'
 
 call plug#end()
 """""""""" End plug

@@ -48,7 +48,9 @@ case ${TERM} in
 		;;
 esac
 
-
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 # use_color=true
 force_color_prompt=true
 
@@ -82,9 +84,9 @@ if ${use_color} ; then
 	fi
 
 	if [[ ${EUID} == 0 ]] ; then
-        PS1='\[\033[01;31m\][\[\033[01;36m\]\W\[\033[01;31m\]]\$\[\033[00m\] '
+        PS1="\[\033[01;32m\][\[\033[01;37m\]\W\[\033[01;32m\]]\$(git_branch)\\n\$\[\033[00m\] "
     else
-        PS1='\[\033[01;32m\][\[\033[01;37m\]\W\[\033[01;32m\]]\$\[\033[00m\] '
+        PS1="\[\033[01;32m\][\[\033[01;37m\]\W\[\033[01;32m\]]\$(git_branch)\\n\$\[\033[00m\] "
 	fi
 
 	alias ls='ls --color=auto'
@@ -156,6 +158,7 @@ colors() {
 		echo; echo
 	done
 }
+
 
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
